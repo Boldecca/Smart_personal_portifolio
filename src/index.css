@@ -1,22 +1,69 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@400;500&display=swap');
+
 :root {
-  --navy: #1a3a5c;
-  --navy-dark: #0f2540;
-  --navy-light: #254d7a;
-  --gold: #c9a84c;
-  --gold-light: #e0c068;
-  --white: #ffffff;
-  --light-bg: #f4f7fb;
-  --text: #2d3748;
-  --text-light: #718096;
-  --border: #e2e8f0;
-  --shadow: 0 4px 24px rgba(26,58,92,0.10);
-  font-family: 'Inter', sans-serif;
+  --bg: #0a0e17;
+  --bg2: #111827;
+  --bg3: #1a2235;
+  --teal: #64ffda;
+  --teal-dim: rgba(100,255,218,0.1);
+  --teal-border: rgba(100,255,218,0.3);
+  --white: #e6f1ff;
+  --slate: #8892b0;
+  --slate-light: #a8b2d8;
+  --border: rgba(255,255,255,0.08);
+  --shadow: 0 10px 40px rgba(0,0,0,0.4);
+  --radius: 12px;
 }
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; }
-body { color: var(--text); background: var(--white); }
+body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--white); overflow-x: hidden; }
 a { text-decoration: none; color: inherit; }
 ul { list-style: none; }
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+.section-wrapper { max-width: 1000px; margin: auto; padding: 6rem 2rem; }
+
+.section-label {
+  font-family: 'Fira Code', monospace;
+  color: var(--teal);
+  font-size: 0.85rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+}
+
+.section-title {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: 3rem;
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  white-space: nowrap;
+}
+.section-title::after {
+  content: '';
+  display: block;
+  height: 1px;
+  width: 200px;
+  background: var(--border);
+}
+
+.btn-primary {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  padding: 0.85rem 2rem; border-radius: 6px;
+  font-weight: 600; font-size: 0.95rem; cursor: pointer;
+  background: transparent; color: var(--teal);
+  border: 1.5px solid var(--teal);
+  transition: all 0.2s; font-family: 'Fira Code', monospace;
+}
+.btn-primary:hover { background: var(--teal-dim); }
+
+/* Fade-in animation */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.fade-up { animation: fadeUp 0.7s ease forwards; }

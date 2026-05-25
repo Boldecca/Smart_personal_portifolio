@@ -1,10 +1,11 @@
 import { useState, useEffect } from 'react'
 import styles from './Navbar.module.css'
 
-const links = ['About', 'Skills', 'Projects', 'Contact']
+const links = ['About', 'Skills', 'Experience', 'Projects', 'Contact']
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false)
+  const [open, setOpen] = useState(false)
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 50)
@@ -15,12 +16,20 @@ export default function Navbar() {
   return (
     <nav className={`${styles.navbar} ${scrolled ? styles.scrolled : ''}`}>
       <div className={styles.container}>
-        <span className={styles.logo}>RM.</span>
-        <ul className={styles.links}>
-          {links.map(l => (
-            <li key={l}><a href={`#${l.toLowerCase()}`}>{l}</a></li>
+        <a href="#hero" className={styles.logo}>RM.</a>
+        <ul className={`${styles.links} ${open ? styles.open : ''}`}>
+          {links.map((l, i) => (
+            <li key={l} style={{ animationDelay: `${i * 0.1}s` }}>
+              <a href={`#${l.toLowerCase()}`} onClick={() => setOpen(false)}>
+                <span className={styles.num}>0{i + 1}.</span> {l}
+              </a>
+            </li>
           ))}
+          <li><a href="/resume.pdf" className={styles.resumeBtn} download>Resume</a></li>
         </ul>
+        <button className={`${styles.burger} ${open ? styles.burgerOpen : ''}`} onClick={() => setOpen(!open)} aria-label="menu">
+          <span /><span /><span />
+        </button>
       </div>
     </nav>
   )

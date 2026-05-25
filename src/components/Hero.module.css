@@ -1,33 +1,79 @@
 .hero {
   min-height: 100vh;
-  background: linear-gradient(135deg, var(--navy-dark) 60%, var(--navy-light) 100%);
-  display: flex; align-items: center; justify-content: center;
-  gap: 4rem; padding: 6rem 2rem 4rem;
+  display: flex; align-items: center;
+  padding: 0 2rem;
+  position: relative;
 }
-.content { color: var(--white); max-width: 540px; }
-.greeting { color: var(--gold); font-size: 1.1rem; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 0.5rem; }
-.content h1 { font-size: 3.2rem; font-weight: 700; line-height: 1.1; margin-bottom: 0.3rem; }
-.content h2 { font-size: 1.4rem; font-weight: 400; color: #a0aec0; margin-bottom: 1rem; }
-.desc { color: #cbd5e0; font-size: 1.05rem; margin-bottom: 2rem; line-height: 1.7; }
+.content {
+  max-width: 700px;
+  margin: auto;
+  padding-top: 5rem;
+}
+.greeting {
+  font-family: 'Fira Code', monospace;
+  color: var(--teal); font-size: 1rem;
+  margin-bottom: 1rem; letter-spacing: 1px;
+}
+.name {
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  font-weight: 700; color: var(--white);
+  line-height: 1.1; margin-bottom: 0.5rem;
+}
+.role {
+  font-size: clamp(1.5rem, 4vw, 2.8rem);
+  font-weight: 700; color: var(--slate);
+  margin-bottom: 1.5rem;
+}
+.typed { color: var(--teal); }
+.cursor {
+  color: var(--teal);
+  animation: blink 1s step-end infinite;
+}
+@keyframes blink { 50% { opacity: 0; } }
+
+.desc {
+  color: var(--slate); font-size: 1.05rem;
+  line-height: 1.8; max-width: 540px;
+  margin-bottom: 2.5rem;
+}
 .btns { display: flex; gap: 1rem; flex-wrap: wrap; }
-.btnPrimary, .btnOutline {
-  display: inline-flex; align-items: center; gap: 0.5rem;
-  padding: 0.75rem 1.8rem; border-radius: 6px;
-  font-weight: 600; font-size: 0.95rem; cursor: pointer;
-  transition: all 0.2s; border: 2px solid transparent;
+.btnGhost {
+  display: inline-flex; align-items: center;
+  padding: 0.85rem 2rem; border-radius: 6px;
+  font-weight: 600; font-size: 0.95rem;
+  color: var(--slate-light); border: 1.5px solid var(--border);
+  transition: all 0.2s;
 }
-.btnPrimary { background: var(--gold); color: var(--navy-dark); border-color: var(--gold); }
-.btnPrimary:hover { background: var(--gold-light); }
-.btnOutline { background: transparent; color: var(--white); border-color: var(--white); }
-.btnOutline:hover { background: var(--white); color: var(--navy-dark); }
-.avatar img {
-  width: 200px; height: 200px; border-radius: 50%;
-  border: 5px solid var(--gold); box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+.btnGhost:hover { border-color: var(--teal); color: var(--teal); }
+
+/* Side social links */
+.social {
+  position: fixed; bottom: 0; left: 2.5rem;
+  display: flex; flex-direction: column; align-items: center; gap: 1.2rem;
+}
+.social a {
+  color: var(--slate); transition: color 0.2s, transform 0.2s;
+}
+.social a:hover { color: var(--teal); transform: translateY(-3px); }
+.line {
+  width: 1px; height: 80px;
+  background: var(--slate);
 }
 
+/* Side email */
+.emailSide {
+  position: fixed; bottom: 0; right: 2.5rem;
+  display: flex; flex-direction: column; align-items: center; gap: 1.2rem;
+}
+.emailSide a {
+  color: var(--slate); font-family: 'Fira Code', monospace;
+  font-size: 0.78rem; letter-spacing: 2px;
+  writing-mode: vertical-rl;
+  transition: color 0.2s, transform 0.2s;
+}
+.emailSide a:hover { color: var(--teal); transform: translateY(-3px); }
+
 @media (max-width: 768px) {
-  .hero { flex-direction: column; text-align: center; gap: 2rem; }
-  .btns { justify-content: center; }
-  .avatar img { width: 150px; height: 150px; }
-  .content h1 { font-size: 2.2rem; }
+  .social, .emailSide { display: none; }
+  .content { padding-top: 6rem; }
 }

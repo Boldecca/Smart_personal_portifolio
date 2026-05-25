@@ -1,19 +1,29 @@
-.section { padding: 5rem 2rem; max-width: 1100px; margin: auto; }
-.title {
-  font-size: 2rem; font-weight: 700; color: var(--navy);
-  margin-bottom: 2.5rem; display: inline-block;
-}
-.title::after {
-  content: ''; display: block; width: 50px; height: 4px;
-  background: var(--gold); border-radius: 2px; margin-top: 0.4rem;
-}
-.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(110px, 1fr)); gap: 1.2rem; }
+.bg { background: var(--bg2); }
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.5rem; }
 .card {
-  display: flex; flex-direction: column; align-items: center; gap: 0.6rem;
-  padding: 1.5rem 1rem; background: var(--white);
-  border: 1px solid var(--border); border-radius: 10px;
-  box-shadow: var(--shadow); transition: transform 0.2s, border-color 0.2s;
-  font-size: 0.9rem; font-weight: 600; color: var(--navy);
+  background: var(--bg3); border: 1px solid var(--border);
+  border-radius: var(--radius); padding: 1.8rem;
+  transition: border-color 0.2s, transform 0.2s;
 }
-.icon { font-size: 2rem; }
-.card:hover { transform: translateY(-4px); border-color: var(--gold); }
+.card:hover { border-color: var(--teal-border); transform: translateY(-4px); }
+.cardTitle {
+  font-size: 1rem; font-weight: 600; color: var(--teal);
+  font-family: 'Fira Code', monospace;
+  margin-bottom: 1.5rem; letter-spacing: 1px;
+}
+.skillRow { margin-bottom: 1rem; }
+.skillMeta {
+  display: flex; justify-content: space-between;
+  font-size: 0.88rem; color: var(--slate-light); margin-bottom: 0.4rem;
+}
+.pct { color: var(--teal); font-family: 'Fira Code', monospace; font-size: 0.8rem; }
+.bar {
+  height: 5px; background: var(--border); border-radius: 10px; overflow: hidden;
+}
+.fill {
+  height: 100%; background: linear-gradient(90deg, var(--teal), #4fc3f7);
+  border-radius: 10px;
+  animation: grow 1.2s ease forwards;
+  transform-origin: left;
+}
+@keyframes grow { from { width: 0 !important; } }

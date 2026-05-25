@@ -1,25 +1,53 @@
-.section { background: var(--light-bg); padding: 5rem 2rem; }
-.title {
-  font-size: 2rem; font-weight: 700; color: var(--navy);
-  margin-bottom: 2.5rem; max-width: 1100px; margin-left: auto; margin-right: auto;
-  display: block;
+.bg { background: var(--bg2); }
+
+/* Featured */
+.featured { display: flex; flex-direction: column; gap: 5rem; margin-bottom: 5rem; }
+.featCard { display: grid; grid-template-columns: 1fr 1fr; gap: 0; align-items: center; position: relative; }
+.reverse { direction: rtl; }
+.reverse > * { direction: ltr; }
+
+.imgLink { position: relative; border-radius: var(--radius); overflow: hidden; display: block; }
+.imgLink img { width: 100%; height: 280px; object-fit: cover; display: block; transition: filter 0.3s; filter: grayscale(30%) brightness(0.7); }
+.imgLink:hover img { filter: none; }
+.imgOverlay { position: absolute; inset: 0; background: rgba(100,255,218,0.05); transition: opacity 0.3s; }
+.imgLink:hover .imgOverlay { opacity: 0; }
+
+.featContent { padding: 1.5rem; z-index: 1; }
+.featLabel { font-family: 'Fira Code', monospace; color: var(--teal); font-size: 0.8rem; margin-bottom: 0.5rem; }
+.featTitle { font-size: 1.4rem; font-weight: 700; color: var(--white); margin-bottom: 1rem; }
+.featDesc {
+  background: var(--bg3); border-radius: 8px; padding: 1.2rem;
+  margin-bottom: 1rem;
 }
-.title::after {
-  content: ''; display: block; width: 50px; height: 4px;
-  background: var(--gold); border-radius: 2px; margin-top: 0.4rem;
+.featDesc p { color: var(--slate); font-size: 0.92rem; line-height: 1.7; }
+.featTags { display: flex; flex-wrap: wrap; gap: 0.8rem; list-style: none; margin-bottom: 1rem; }
+.featTags li { font-family: 'Fira Code', monospace; font-size: 0.78rem; color: var(--slate-light); }
+.featLinks { display: flex; gap: 1rem; }
+.featLinks a { color: var(--slate-light); transition: color 0.2s; }
+.featLinks a:hover { color: var(--teal); }
+
+/* Other projects */
+.otherTitle { text-align: center; color: var(--white); font-size: 1.1rem; margin-bottom: 2rem; }
+.othersGrid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1.2rem; }
+.otherCard {
+  background: var(--bg3); border: 1px solid var(--border);
+  border-radius: var(--radius); padding: 1.8rem;
+  display: flex; flex-direction: column; gap: 0.8rem;
+  transition: transform 0.2s, border-color 0.2s;
+  cursor: default;
 }
-.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.8rem; max-width: 1100px; margin: auto; }
-.card {
-  background: var(--white); border-radius: 12px; padding: 2rem;
-  box-shadow: var(--shadow); border: 1px solid var(--border);
-  transition: transform 0.2s, box-shadow 0.2s;
+.otherCard:hover { transform: translateY(-6px); border-color: var(--teal-border); }
+.otherTop { display: flex; justify-content: space-between; align-items: center; }
+.folderIcon { font-size: 2rem; }
+.otherLinks { display: flex; gap: 0.8rem; }
+.otherLinks a { color: var(--slate); transition: color 0.2s; }
+.otherLinks a:hover { color: var(--teal); }
+.otherCardTitle { font-size: 1rem; font-weight: 600; color: var(--white); }
+.otherDesc { color: var(--slate); font-size: 0.88rem; line-height: 1.6; flex: 1; }
+.otherTags { display: flex; flex-wrap: wrap; gap: 0.8rem; list-style: none; margin-top: auto; }
+.otherTags li { font-family: 'Fira Code', monospace; font-size: 0.75rem; color: var(--slate); }
+
+@media (max-width: 768px) {
+  .featCard, .reverse { grid-template-columns: 1fr; direction: ltr; }
+  .imgLink img { height: 200px; }
 }
-.card:hover { transform: translateY(-6px); box-shadow: 0 12px 32px rgba(26,58,92,0.15); }
-.icon { font-size: 2.2rem; margin-bottom: 1rem; }
-.card h3 { font-size: 1.15rem; color: var(--navy); margin-bottom: 0.6rem; }
-.card p { color: var(--text-light); font-size: 0.9rem; line-height: 1.7; margin-bottom: 1rem; }
-.tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.2rem; }
-.tags span { background: #eef2f7; color: var(--navy); font-size: 0.78rem; font-weight: 600; padding: 0.3rem 0.8rem; border-radius: 20px; }
-.links { display: flex; gap: 1rem; }
-.links a { color: var(--navy-light); font-size: 0.88rem; font-weight: 600; transition: color 0.2s; }
-.links a:hover { color: var(--gold); }
