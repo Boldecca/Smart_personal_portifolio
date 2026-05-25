@@ -15,7 +15,7 @@ export default function Navbar() {
   return (
     <nav className={`${styles.navbar} ${scrolled ? styles.scrolled : ''}`}>
       <div className={styles.container}>
-        <span className={styles.logo}>JD.</span>
+        <span className={styles.logo}>RM.</span>
         <ul className={styles.links}>
           {links.map(l => (
             <li key={l}><a href={`#${l.toLowerCase()}`}>{l}</a></li>

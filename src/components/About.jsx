@@ -1,7 +1,7 @@
 import styles from './About.module.css'
 
 const info = [
-  { label: 'Name', value: 'John Doe' },
+  { label: 'Name', value: 'Rebecca Muteteri' },
   { label: 'Email', value: 'john.doe@email.com' },
   { label: 'Location', value: 'New York, USA' },
   { label: 'Availability', value: 'Open to Work' },

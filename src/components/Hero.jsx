@@ -5,7 +5,7 @@ export default function Hero() {
     <section className={styles.hero}>
       <div className={styles.content}>
         <p className={styles.greeting}>Hello, I'm</p>
-        <h1>John Doe</h1>
+        <h1>Rebecca Muteteri</h1>
         <h2>Software Engineer</h2>
         <p className={styles.desc}>I build clean, scalable, and user-focused web applications.</p>
         <div className={styles.btns}>
@@ -15,8 +15,8 @@ export default function Hero() {
       </div>
       <div className={styles.avatar}>
         <img
-          src="https://ui-avatars.com/api/?name=John+Doe&size=200&background=1a3a5c&color=c9a84c&bold=true&rounded=true"
-          alt="John Doe"
+          src="https://ui-avatars.com/api/?name=Rebecca+Muteteri&size=200&background=1a3a5c&color=c9a84c&bold=true&rounded=true"
+          alt="Rebecca Muteteri"
         />
       </div>
     </section>
