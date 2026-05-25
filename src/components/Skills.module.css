@@ -17,13 +17,15 @@
   font-size: 0.88rem; color: var(--slate-light); margin-bottom: 0.4rem;
 }
 .pct { color: var(--teal); font-family: 'Fira Code', monospace; font-size: 0.8rem; }
-.bar {
-  height: 5px; background: var(--border); border-radius: 10px; overflow: hidden;
-}
+.bar { height: 5px; background: var(--border); border-radius: 10px; overflow: hidden; }
 .fill {
   height: 100%; background: linear-gradient(90deg, var(--teal), #4fc3f7);
   border-radius: 10px;
   animation: grow 1.2s ease forwards;
-  transform-origin: left;
 }
 @keyframes grow { from { width: 0 !important; } }
+
+@media (max-width: 600px) {
+  .grid { grid-template-columns: 1fr; }
+  .card { padding: 1.4rem; }
+}

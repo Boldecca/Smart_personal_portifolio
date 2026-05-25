@@ -9,9 +9,7 @@
 .techList span { color: var(--teal); margin-right: 0.4rem; }
 
 .imgWrapper { display: flex; justify-content: center; }
-.imgBox {
-  position: relative; width: 260px; height: 260px;
-}
+.imgBox { position: relative; width: 260px; height: 260px; }
 .imgBox img {
   width: 100%; height: 100%; object-fit: cover;
   border-radius: var(--radius);
@@ -29,8 +27,13 @@
 }
 .imgBox:hover .imgBorder { transform: translate(-4px, -4px); }
 
-@media (max-width: 768px) {
-  .grid { grid-template-columns: 1fr; }
+@media (max-width: 900px) {
+  .grid { grid-template-columns: 1fr; gap: 2.5rem; }
   .imgWrapper { order: -1; }
-  .imgBox { width: 200px; height: 200px; }
+  .imgBox { width: 180px; height: 180px; }
+}
+
+@media (max-width: 480px) {
+  .techList { grid-template-columns: 1fr; }
+  .imgBox { width: 150px; height: 150px; }
 }
