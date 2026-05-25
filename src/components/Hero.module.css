@@ -1,0 +1,33 @@
+.hero {
+  min-height: 100vh;
+  background: linear-gradient(135deg, var(--navy-dark) 60%, var(--navy-light) 100%);
+  display: flex; align-items: center; justify-content: center;
+  gap: 4rem; padding: 6rem 2rem 4rem;
+}
+.content { color: var(--white); max-width: 540px; }
+.greeting { color: var(--gold); font-size: 1.1rem; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 0.5rem; }
+.content h1 { font-size: 3.2rem; font-weight: 700; line-height: 1.1; margin-bottom: 0.3rem; }
+.content h2 { font-size: 1.4rem; font-weight: 400; color: #a0aec0; margin-bottom: 1rem; }
+.desc { color: #cbd5e0; font-size: 1.05rem; margin-bottom: 2rem; line-height: 1.7; }
+.btns { display: flex; gap: 1rem; flex-wrap: wrap; }
+.btnPrimary, .btnOutline {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  padding: 0.75rem 1.8rem; border-radius: 6px;
+  font-weight: 600; font-size: 0.95rem; cursor: pointer;
+  transition: all 0.2s; border: 2px solid transparent;
+}
+.btnPrimary { background: var(--gold); color: var(--navy-dark); border-color: var(--gold); }
+.btnPrimary:hover { background: var(--gold-light); }
+.btnOutline { background: transparent; color: var(--white); border-color: var(--white); }
+.btnOutline:hover { background: var(--white); color: var(--navy-dark); }
+.avatar img {
+  width: 200px; height: 200px; border-radius: 50%;
+  border: 5px solid var(--gold); box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+}
+
+@media (max-width: 768px) {
+  .hero { flex-direction: column; text-align: center; gap: 2rem; }
+  .btns { justify-content: center; }
+  .avatar img { width: 150px; height: 150px; }
+  .content h1 { font-size: 2.2rem; }
+}
