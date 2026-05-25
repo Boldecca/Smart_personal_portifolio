@@ -1,106 +1,173 @@
+/* ─── BASE ─── */
 .navbar {
-  position: fixed; top: 0; width: 100%; z-index: 100;
-  padding: 1.2rem 2rem;
-  transition: all 0.3s;
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 200;
+  padding: 1.1rem 1.5rem;
+  transition: background 0.3s, padding 0.3s, box-shadow 0.3s;
 }
 .scrolled {
   background: var(--nav-bg);
-  backdrop-filter: blur(12px);
-  box-shadow: 0 2px 20px rgba(0,0,0,0.15);
-  padding: 0.8rem 2rem;
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  box-shadow: 0 1px 0 var(--border);
+  padding: 0.75rem 1.5rem;
 }
 .container {
-  max-width: 1100px; margin: auto;
-  display: flex; align-items: center; justify-content: space-between;
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
 }
+
+/* ─── LOGO ─── */
 .logo {
   font-family: 'Fira Code', monospace;
-  font-size: 1.5rem; font-weight: 700;
-  color: var(--teal); z-index: 200;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--teal);
+  flex-shrink: 0;
+  z-index: 300;
 }
 
-/* Nav links */
+/* ─── DESKTOP LINKS ─── */
 .links {
-  display: flex; align-items: center; gap: 0.3rem;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  list-style: none;
 }
 .links a {
-  color: var(--slate-light); font-size: 0.9rem; font-weight: 500;
-  padding: 0.5rem 0.8rem; border-radius: 4px;
-  transition: color 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  color: var(--slate-light);
+  font-size: 0.88rem;
+  font-weight: 500;
+  padding: 0.45rem 0.75rem;
+  border-radius: 6px;
+  transition: color 0.2s, background 0.2s;
+  white-space: nowrap;
 }
-.links a:hover { color: var(--teal); }
-.num { color: var(--teal); font-family: 'Fira Code', monospace; font-size: 0.78rem; margin-right: 2px; }
-
+.links a:hover { color: var(--teal); background: var(--teal-dim); }
+.num {
+  color: var(--teal);
+  font-family: 'Fira Code', monospace;
+  font-size: 0.75rem;
+}
 .resumeBtn {
   color: var(--teal) !important;
   border: 1.5px solid var(--teal) !important;
   border-radius: 6px !important;
-  padding: 0.45rem 1.1rem !important;
+  padding: 0.4rem 1rem !important;
   margin-left: 0.5rem;
+  background: transparent !important;
   transition: background 0.2s !important;
 }
 .resumeBtn:hover { background: var(--teal-dim) !important; }
 
-/* Right side controls */
-.right { display: flex; align-items: center; gap: 0.5rem; }
-
+/* ─── RIGHT CONTROLS ─── */
+.right {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-shrink: 0;
+}
 .themeBtn {
-  background: none; border: 1px solid var(--border);
-  border-radius: 8px; cursor: pointer;
-  font-size: 1.1rem; padding: 0.35rem 0.6rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px; height: 36px;
+  background: none;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1rem;
   transition: border-color 0.2s, background 0.2s;
-  line-height: 1;
+  flex-shrink: 0;
 }
 .themeBtn:hover { border-color: var(--teal); background: var(--teal-dim); }
 
-/* Burger */
+/* ─── BURGER ─── */
 .burger {
-  display: none; flex-direction: column; gap: 5px;
-  background: none; border: none; cursor: pointer;
-  padding: 4px; z-index: 200;
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 36px; height: 36px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  z-index: 300;
+  flex-shrink: 0;
 }
 .burger span {
-  display: block; width: 24px; height: 2px;
-  background: var(--teal); border-radius: 2px;
-  transition: all 0.3s;
+  display: block;
+  width: 22px; height: 2px;
+  background: var(--teal);
+  border-radius: 2px;
+  transition: transform 0.3s, opacity 0.3s;
+  transform-origin: center;
 }
 .burgerOpen span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
-.burgerOpen span:nth-child(2) { opacity: 0; }
+.burgerOpen span:nth-child(2) { opacity: 0; transform: scaleX(0); }
 .burgerOpen span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
-/* Overlay */
+/* ─── OVERLAY ─── */
 .overlay {
-  position: fixed; inset: 0; z-index: 98;
-  background: rgba(0,0,0,0.5);
-  backdrop-filter: blur(2px);
+  position: fixed;
+  inset: 0;
+  z-index: 198;
+  background: rgba(0,0,0,0.6);
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
+  animation: fadeIn 0.2s ease;
 }
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 
-/* ── MOBILE ── */
+/* ─── MOBILE ─── */
 @media (max-width: 768px) {
   .burger { display: flex; }
 
   .links {
-    position: fixed; top: 0; right: -100%;
-    width: min(75vw, 300px); height: 100vh;
+    position: fixed;
+    top: 0; right: 0;
+    width: min(72vw, 280px);
+    height: 100dvh;
     background: var(--bg2);
-    flex-direction: column; justify-content: center; align-items: flex-start;
-    gap: 0.5rem; padding: 2rem;
-    font-size: 1rem;
-    transition: right 0.35s cubic-bezier(0.4,0,0.2,1);
-    box-shadow: -10px 0 40px rgba(0,0,0,0.3);
-    z-index: 99;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 0.25rem;
+    padding: 5rem 2rem 2rem;
+    z-index: 199;
+    transform: translateX(100%);
+    transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: -8px 0 32px rgba(0,0,0,0.3);
   }
-  .open { right: 0; }
+  .open { transform: translateX(0); }
 
   .links li { width: 100%; }
   .links a {
-    display: block; padding: 0.8rem 1rem;
-    font-size: 1rem; border-radius: 8px;
+    width: 100%;
+    font-size: 1rem;
+    padding: 0.75rem 1rem;
+    border-radius: 8px;
   }
-  .resumeBtn { margin-left: 0 !important; margin-top: 0.5rem; }
+  .resumeBtn {
+    margin-left: 0 !important;
+    margin-top: 0.75rem;
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+  }
 }
 
 @media (max-width: 480px) {
-  .navbar { padding: 1rem 1.2rem; }
-  .scrolled { padding: 0.7rem 1.2rem; }
+  .navbar { padding: 0.9rem 1rem; }
+  .scrolled { padding: 0.65rem 1rem; }
+  .logo { font-size: 1.25rem; }
 }
