@@ -1,39 +1,84 @@
-.grid { display: grid; grid-template-columns: 3fr 2fr; gap: 4rem; align-items: start; }
-.text p { color: var(--slate); line-height: 1.8; margin-bottom: 1rem; font-size: 1rem; }
-.text strong { color: var(--teal); }
-.techList {
-  display: grid; grid-template-columns: 1fr 1fr;
-  gap: 0.4rem 1rem; margin-top: 1rem; list-style: none;
+/* ─── GRID ─── */
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2.5rem;
+  align-items: start;
 }
-.techList li { color: var(--slate-light); font-family: 'Fira Code', monospace; font-size: 0.85rem; }
-.techList span { color: var(--teal); margin-right: 0.4rem; }
 
-.imgWrapper { display: flex; justify-content: center; }
-.imgBox { position: relative; width: 260px; height: 260px; }
+/* ─── TEXT ─── */
+.text p {
+  color: var(--slate);
+  line-height: 1.8;
+  margin-bottom: 1rem;
+  font-size: clamp(0.9rem, 2vw, 1rem);
+}
+.text strong { color: var(--teal); font-weight: 600; }
+
+.techList {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.35rem 1rem;
+  margin-top: 1.25rem;
+  list-style: none;
+}
+.techList li {
+  color: var(--slate-light);
+  font-family: 'Fira Code', monospace;
+  font-size: 0.82rem;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+.techList span { color: var(--teal); flex-shrink: 0; }
+
+/* ─── IMAGE ─── */
+.imgWrapper {
+  display: flex;
+  justify-content: center;
+}
+.imgBox {
+  position: relative;
+  width: min(220px, 60vw);
+  aspect-ratio: 1;
+}
 .imgBox img {
-  width: 100%; height: 100%; object-fit: cover;
+  width: 100%; height: 100%;
+  object-fit: cover;
   border-radius: var(--radius);
-  filter: grayscale(20%);
+  filter: grayscale(15%);
   transition: filter 0.3s;
-  position: relative; z-index: 1;
+  position: relative;
+  z-index: 1;
 }
 .imgBox:hover img { filter: none; }
 .imgBorder {
-  position: absolute; top: 14px; left: 14px;
+  position: absolute;
+  top: 12px; left: 12px;
   width: 100%; height: 100%;
   border: 2px solid var(--teal);
-  border-radius: var(--radius); z-index: 0;
+  border-radius: var(--radius);
+  z-index: 0;
   transition: transform 0.3s;
 }
-.imgBox:hover .imgBorder { transform: translate(-4px, -4px); }
+.imgBox:hover .imgBorder { transform: translate(-5px, -5px); }
 
-@media (max-width: 900px) {
-  .grid { grid-template-columns: 1fr; gap: 2.5rem; }
-  .imgWrapper { order: -1; }
-  .imgBox { width: 180px; height: 180px; }
+/* ─── TABLET+ ─── */
+@media (min-width: 640px) {
+  .imgBox { width: min(240px, 45vw); }
 }
 
+@media (min-width: 900px) {
+  .grid {
+    grid-template-columns: 3fr 2fr;
+    gap: 4rem;
+  }
+  .imgWrapper { order: 0; }
+  .imgBox { width: 260px; }
+}
+
+/* ─── MOBILE ─── */
 @media (max-width: 480px) {
   .techList { grid-template-columns: 1fr; }
-  .imgBox { width: 150px; height: 150px; }
+  .imgBox { width: min(180px, 55vw); }
 }
