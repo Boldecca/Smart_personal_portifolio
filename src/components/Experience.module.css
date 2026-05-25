@@ -1,42 +1,108 @@
-.layout { display: flex; gap: 2rem; }
-.tabs {
-  display: flex; flex-direction: column;
-  border-left: 2px solid var(--border);
-  min-width: 150px; flex-shrink: 0;
+/* ─── MOBILE FIRST: stacked ─── */
+.layout {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
 }
+
+/* ─── TABS ─── */
+.tabs {
+  display: flex;
+  flex-direction: row;
+  overflow-x: auto;
+  scrollbar-width: none;
+  border-bottom: 2px solid var(--border);
+  gap: 0;
+  flex-shrink: 0;
+}
+.tabs::-webkit-scrollbar { display: none; }
+
 .tab {
-  background: none; border: none; cursor: pointer;
-  text-align: left; padding: 0.8rem 1.2rem;
-  color: var(--slate); font-family: 'Fira Code', monospace;
-  font-size: 0.88rem; border-left: 2px solid transparent;
-  margin-left: -2px; transition: all 0.2s; white-space: nowrap;
+  background: none;
+  border: none;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -2px;
+  cursor: pointer;
+  padding: 0.65rem 1.1rem;
+  color: var(--slate);
+  font-family: 'Fira Code', monospace;
+  font-size: 0.85rem;
+  white-space: nowrap;
+  transition: color 0.2s, border-color 0.2s, background 0.2s;
+  border-radius: 4px 4px 0 0;
 }
 .tab:hover { color: var(--teal); background: var(--teal-dim); }
-.activeTab { color: var(--teal); border-left-color: var(--teal); background: var(--teal-dim); }
+.activeTab {
+  color: var(--teal);
+  border-bottom-color: var(--teal);
+  background: var(--teal-dim);
+}
 
+/* ─── PANEL ─── */
 .panel { flex: 1; min-width: 0; }
-.role { font-size: 1.2rem; font-weight: 600; color: var(--white); margin-bottom: 0.3rem; }
-.at { color: var(--teal); }
-.period { font-family: 'Fira Code', monospace; font-size: 0.82rem; color: var(--slate); margin-bottom: 1.5rem; }
-.points { list-style: none; display: flex; flex-direction: column; gap: 0.8rem; }
-.points li { display: flex; gap: 0.8rem; color: var(--slate); font-size: 0.95rem; line-height: 1.6; }
-.points span { color: var(--teal); flex-shrink: 0; margin-top: 2px; }
 
-@media (max-width: 640px) {
-  .layout { flex-direction: column; gap: 1.5rem; }
+.role {
+  font-size: clamp(1rem, 2.5vw, 1.2rem);
+  font-weight: 600;
+  color: var(--white);
+  margin-bottom: 0.3rem;
+  line-height: 1.4;
+}
+.at { color: var(--teal); }
+
+.period {
+  font-family: 'Fira Code', monospace;
+  font-size: 0.8rem;
+  color: var(--slate);
+  margin-bottom: 1.25rem;
+}
+
+.points {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  list-style: none;
+}
+.points li {
+  display: flex;
+  gap: 0.75rem;
+  color: var(--slate);
+  font-size: clamp(0.88rem, 2vw, 0.95rem);
+  line-height: 1.65;
+}
+.points span {
+  color: var(--teal);
+  flex-shrink: 0;
+  margin-top: 3px;
+  font-size: 0.75rem;
+}
+
+/* ─── DESKTOP: side tabs ─── */
+@media (min-width: 640px) {
+  .layout {
+    flex-direction: row;
+    gap: 2rem;
+    align-items: flex-start;
+  }
   .tabs {
-    flex-direction: row; border-left: none;
-    border-bottom: 2px solid var(--border);
-    overflow-x: auto; padding-bottom: 0;
-    scrollbar-width: none;
+    flex-direction: column;
+    overflow-x: visible;
+    border-bottom: none;
+    border-left: 2px solid var(--border);
+    min-width: 148px;
+    max-width: 160px;
   }
-  .tabs::-webkit-scrollbar { display: none; }
   .tab {
-    border-left: none; border-bottom: 2px solid transparent;
-    margin-left: 0; margin-bottom: -2px;
-    padding: 0.6rem 1rem;
+    border-bottom: none;
+    border-left: 2px solid transparent;
+    margin-bottom: 0;
+    margin-left: -2px;
+    border-radius: 0 4px 4px 0;
+    text-align: left;
+    padding: 0.75rem 1.1rem;
   }
-  .activeTab { border-left: none; border-bottom-color: var(--teal); }
-  .role { font-size: 1rem; }
-  .points li { font-size: 0.88rem; }
+  .activeTab {
+    border-bottom: none;
+    border-left-color: var(--teal);
+  }
 }
