@@ -1,4 +1,7 @@
 .footer {
-  background: var(--navy-dark); color: #a0aec0;
-  text-align: center; padding: 1.5rem; font-size: 0.9rem;
+  text-align: center; padding: 2rem;
+  color: var(--slate); font-family: 'Fira Code', monospace; font-size: 0.82rem;
+  border-top: 1px solid var(--border);
 }
+.footer span { color: var(--teal); }
+.sub { margin-top: 0.3rem; font-size: 0.75rem; opacity: 0.6; }
