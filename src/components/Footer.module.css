@@ -1,7 +1,11 @@
 .footer {
-  text-align: center; padding: 2rem 1.2rem;
-  color: var(--slate); font-family: 'Fira Code', monospace; font-size: 0.82rem;
+  text-align: center;
+  padding: 2rem 1.5rem;
+  color: var(--slate);
+  font-family: 'Fira Code', monospace;
+  font-size: clamp(0.72rem, 2vw, 0.82rem);
   border-top: 1px solid var(--border);
+  line-height: 1.8;
 }
 .footer span { color: var(--teal); }
-.sub { margin-top: 0.3rem; font-size: 0.75rem; opacity: 0.6; }
+.sub { opacity: 0.55; margin-top: 0.2rem; }
